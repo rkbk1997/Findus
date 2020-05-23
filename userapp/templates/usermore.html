@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+
+{% block content %}
+<div class="top">
+    <div class="card">
+        <img src="{% static '/images/top.jpg' %}" alt="">
+    </div>
+</div>
+<div class="service">
+    <div class="card-deck">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="{% static '/images/smen/s2.jpg' %}" class="card-img" alt="..." style="height: 160px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">"In 2014, my business had come to a halt.
+                       This is when I joined Find Us, and there has been no looking back."<br>
+                       <span style="font-weight: bold;">Surender Bhatia, Limestone</span></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="{% static '/images/smen/s1.jpg' %}" class="card-img" alt="..." style="height: 160px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">"The dream of doing something of my own brought me to Find Us,
+                       and I am living that dream now."<br>
+                    <span style="font-weight: bold;">Chand M, Saran Retails</span></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="{% static '/images/smen/s3.jpg' %}" class="card-img" alt="..." style="height: 160px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">"I joined Find Us when the real estate business had hit
+                       rock bottom. I am one of the top sellers in Footwear category now."<br>
+                       <span style="font-weight: bold;">Parvesh Goel, Longwalk</span></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+<div class="top">
+  <div class="card">
+    <h1 class="pt-3" style="text-align: center;font-family: 'Times New Roman', Times, serif;"><a href="" style="text-decoration: none; font-size: 30px; color: rgb(62, 192, 209);">GROW FASTER WITH FIND US<BR><span>know more</span></a></h1>
+      <img src="{% static '/images/graph.png' %}" alt="">
+  </div>
+</div>
+<!-------------------------------------->
+<div class="wrapper" style="background-color: rgb(234, 247, 247);">
+  <h1 style="font-family:'Times New Roman', Times, serif; text-align: center;padding-top: 20px;">Our Team</h1>
+  <!---team 1st------------------------------------->
+  <div class="team" style="display: flex;justify-content: center;width: auto;text-align: center;flex-wrap: wrap; margin-top: 60px;">
+    <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+      <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+          <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+      </div>
+      <h3 class="mt-4">Paul Doe</h3>
+      <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+      <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+    </div>
+  <!----team 2-------------------------------------->
+      <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+        <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+            <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+        </div>
+        <h3 class="mt-4">Paul Doe</h3>
+        <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+        <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+      </div>
+  <!----team 2-------------------------------------->
+  <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+      <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+          <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+      </div>
+      <h3 class="mt-4">Paul Doe</h3>
+      <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+      <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+    </div>
+  <!----team 2-------------------------------------->
+  <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+      <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+          <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+      </div>
+      <h3 class="mt-4">Paul Doe</h3>
+      <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+      <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+    </div>
+</div>       
+</div>	
+<!----------------------------------------->
+{% endblock %}

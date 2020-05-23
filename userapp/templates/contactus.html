@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+
+{% block content %}
+<!-- Start contact-page Area -->
+<section class="contact-page-area section-gap pb-5" style="background-image: url(static/about/bg.jpg);"> 
+    <div>
+        <h1 style=" text-align: center; font-family: 'Roboto Slab', serif;"><br>
+            Contact Us</h1>
+    </div>
+    <div class="container" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">
+        <div class="row mt-5">
+            <div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
+            <div class="col-lg-4 d-flex flex-column address-wrap pt-5" style="border-radius: 50px 0 0 0;-webkit-box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);
+            -moz-box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);
+            box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);">
+                <div class="single-contact-address d-flex flex-row">
+                    <div class="icon">
+                        <span class="lnr lnr-home"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>Find Us</h5>
+                        <p style="color: black;">Indore</p>
+                    </div>
+                </div>
+                <div class="single-contact-address d-flex flex-row">
+                    <div class="icon">
+                        <span class="lnr lnr-phone-handset"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>00 (958) 9865 562</h5>
+                        <p style="color: black;">Mon to Fri 9am to 6 pm</p>
+                    </div>
+                </div>
+                <div class="single-contact-address d-flex flex-row">
+                    <div class="icon">
+                        <span class="lnr lnr-envelope"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>support@findus.com</h5>
+                        <p style="color: black;">Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 pt-5 pr-5" style="-webkit-box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);-moz-box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);border-radius: 0 0 50px 0;">
+                <form class="form-area contact-form text-right" id="myForm" action="contactsms" method="post" style="font-size:40px;">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+                             class="common-input mb-3 form-control" required="" type="text">
+
+                            <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''"onblur="this.placeholder = 'Enter email address'" class="common-input mb-3 form-control" required="" type="email">
+
+                            <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" class="common-input mb-3 form-control" required="" type="text">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <textarea class="common-textarea form-control" name="message" placeholder="Enter Messege" onfocus="this.placeholder = ''"onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
+                        </div>
+                        <div class="col-lg-12 mt-2">
+                            <div class="alert-msg" style="text-align: left;"></div>
+                            <button class="btn  btn-primary mb-5" style="float: right;">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End contact-page Area -->
+{% endblock %}

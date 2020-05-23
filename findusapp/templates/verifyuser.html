@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static '/images/location.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Us</title>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{% static '/css/style.css/' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <!--==============Form Start================================================================================-->
+<div class="bg">
+    <div class="loginpage">
+    <div class="container-fluid mt-5 mb-5" style="margin-top: 100px !important;">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <form class="form-container" method="POST" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+              <center>
+              <img src="{% static '/images/login.jpg' %}" alt="">
+              </center>
+              <h1>Login Form</h1>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-user fa-lg" ></i></i></i></span>
+                </div>
+                <input type="text" name="username"class="form-control" required placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock fa-lg" ></i></i></i></span>
+                </div>
+                <input type="password" name="password" class="form-control" required placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+             
+              <input type="checkbox" name="" id="" required>&nbsp;<label>Remember me</label>
+              {% if error %}
+              <div style="color: red;">Username or Password Not Match</div>
+              {% endif %}
+              <input class="btn btn-success btn-block mb-2" type="submit" value="Login" >
+              <center>
+              <a href="reg">Create Account or Sign Up</a>     
+              </center>          
+            </form>
+          </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!--====================form close =======================================================-->
+</body>
+</html>

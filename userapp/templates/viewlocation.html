@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+
+{% block content %}
+<div class="addcate" style="background-image: url(static/about/bg.jpg);">
+    <div class="heading">
+        <div class="card">
+            <div class="card-body m-0 p-0" >
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Loaction View</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid pl-5 pr-5 pb-4">
+        <!--<div class="row d-flex">
+            {% for i in data %}
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="">State</label>
+                    <input type="text" readonly name="" class="form-control" value="{{i.state }}">
+                    <label for="">City</label>
+                    <input type="text" name="" readonly class="form-control" value="{{i.city}}"   >
+                </div>
+            </div>
+            {% endfor %}
+        </div>-->
+        <div class="table-wrap" style="overflow-x: scroll;">
+            <table class="table table-bordered " id="myTable" style="text-align: center;background:#fff">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th scope="col">State</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Locality</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Sub Category Name</th>
+                        <th scope="col">Location Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Image 1</th>
+                        <th scope="col">Image 2</th>
+                        <th scope="col">Image 3</th>
+                        <th scope="col">Image 4</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.state }}</td>
+                        <td>{{ i.city }}</td>
+                        <td>{{ i.locality }}</td>
+                        <td>{{ i.cate }}</td>
+                        <td>{{ i.subcate }}</td>
+                        <td>{{ i.location_title }}</td>
+                        <td>{{ i.des }}</td>
+                        <td><img src="{{ i.img1.url }}" alt="" style="height: 50px; width: 100px;"></td>
+                        <td><img src="{{ i.img2.url }}" alt="" style="height: 50px; width: 100px;"></td>
+                        <td><img src="{{ i.img3.url }}" alt="" style="height: 50px; width: 100px;"></td>
+                        <td><img src="{{ i.img4.url }}" alt="" style="height: 50px; width: 100px;"></td>
+                        <td>{% if i.v_status %}
+                            <img src="{% static '/images/verify.png' %}" alt="" style="height: 50px; width: 100px;">
+                            {% else %}
+                            <img src="{% static '/images/notverify.png' %}" alt="" style="height: 50px; width: 100px;">
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if i.v_status %}	
+                                    Done
+                                {% else %}
+                                <!-- PayPal payment form for displaying the buy button -->
+                                <form action="{{PAYPAL_URL}}" method="post">
+                                    <!-- Identify your business so that you can collect the payments. -->
+                                    <input type="hidden" name="business" value="{{PAYPAL_ID}}">   
+                                    <!-- Specify a Buy Now button. -->
+                                    <input type="hidden" name="cmd" value="_xclick">            
+                                    <!-- Specify details about the item that buyers will purchase. -->
+                                    <input type="hidden" name="item_name" value="Verify Location Charges">
+                                    <input type="hidden" name="item_number" value="{{i.id}}">
+                                    <input type="hidden" name="amount" value="250">
+                                    <input type="hidden" name="currency_code" value="USD">
+                                    <!-- Specify URLs -->
+                                    <input type="hidden" name="return" value="http://127.0.0.1:8000/payment?lid={{i.id}}&sunm={{sunm}}&price=250&vid={{i.vid}}"> 
+                                    <input type="hidden" name="cancel_return" value="http://127.0.0.1:8000/cancel"> 
+                                    <!-- Display the payment button. -->
+                                    <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif">
+                                </form>                   
+                            {% endif %}	
+                        </td>
+                        <!--<td><button class="btn btn-primary">Pay</button></td>-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+{% endblock %}

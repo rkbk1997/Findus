@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+{% block navuser %}
+{% endblock %}
+{% block content %}
+<div style="background-image: url(static/about/bg.jpg)!important;">
+<div class="page-view" >
+    <div class="row d-flex w-100">
+        {% for i in loc %}
+        <div class="col-md-3 col-sm-12 pt-4">
+            <center class="p-3 mb-3" style="height: 300px;-webkit-box-shadow: 0px 15px 11px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 15px 11px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 15px 11px 0px rgba(0,0,0,0.75);background:#F0C334;border-radius: 10px; ">
+            <a href="{% url 'itemview' i.id %}" style="text-decoration: none; color: black;">
+                <img src="{{ i.img1.url }}" alt="" class="p-3" style="height: 200px;width: 100%;">
+                <div style="font-family: Arial, Helvetica, sans-serif;">
+                <h1 style="font-size: 20px;">
+                 {{i.location_title}}</h1>
+                </div>
+            </a>
+            </center>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

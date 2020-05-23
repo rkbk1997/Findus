@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+
+{% block content %}
+<script>
+function fetchcity(s)
+{
+	var xhttp=new XMLHttpRequest()
+	xhttp.open("GET","http://127.0.0.1:8000/fetchcity?snm="+s,true)
+	xhttp.send()
+	xhttp.onreadystatechange=function(){
+		if(xhttp.readyState==4 && xhttp.status==200)
+		{
+			document.getElementById('city').innerHTML=xhttp.responseText
+		}
+	}
+}
+function fetchsubcate(s)
+{
+	var xhttp=new XMLHttpRequest()
+	xhttp.open("GET","http://127.0.0.1:8000/fetchsubcate?snm="+s,true)
+	xhttp.send()
+	xhttp.onreadystatechange=function(){
+		if(xhttp.readyState==4 && xhttp.status==200)
+		{
+			document.getElementById('subcate').innerHTML=xhttp.responseText
+		}
+	}
+}
+</script>
+<div class="addlocation" style="background-image: url(static/about/bg.jpg);">
+    <div class="container-fluid pt-4 pb-4">
+        <div class="container">
+            <h1>Add Your Loaction & Services</h1>
+            <form method="POST" enctype="multipart/form-data" action="">
+                {% csrf_token %}
+                <div class="row d-flex pl-5 pr-5">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="state">Select Your State</label>
+                            <select name="state" onchange="fetchcity(this.value)" class="form-control mb-2" required>
+                                <option value="0">Choose Your State</option>
+                                {% for i in slist %}
+                                <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="">Select Your City Select</label>
+                        <select name="city" id="city" class="form-control mb-2" required>
+                            <option value="">Choose Your City</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="">Enter Your Locality</label>
+                        <input type="text" name="locality" class="form-control" required placeholder="Enter Your Locality">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="">Select Your Cateory</label>
+                        <select name="cate" class="form-control mb-2" onchange="fetchsubcate(this.value)" required>
+                            <option value="0">Choose Your Cateory</option>
+                            {% for i in cate %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="">Select Your Sub Cateory</label>
+                        <select name="subcate" id="subcate" class="form-control mb-2" required>
+                            <option value="">Choose Your Sub Cateory</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <label for="">Enter Location Title</label>
+                        <input type="text" name="location_title" class="form-control mb-2" required placeholder="Enter Location Title">
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <label for="">Description of Services</label>
+                        <textarea name="des" id="" cols="30" rows="3" class="form-control mb-2" required></textarea>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <label for="">Choose Image 1</label>
+                        <input type="file" name="img1" class="form-control-file mb-2" required>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <label for="">Choose Image 2</label>
+                        <input type="file" name="img2" class="form-control-file mb-2">
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <label for="">Choose Image 3</label>
+                        <input type="file" name="img3" class="form-control-file mb-2">
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <label for="">Choose Image 4</label>
+                        <input type="file" name="img4" class="form-control-file mb-2">
+                    </div>
+                </div>
+                <center>
+                    <input type="submit" class="btn btn-primary w-50 mb-4" value="Save">
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+{% block content %}
+<div class="notification" style="background-image: url(static/about/bg.jpg);">
+    <div class="row w-100 m-0">
+        <div class="col-md-8 col-sm-12">
+            <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 40px; text-align: center;margin-top: 20px; margin-bottom: 20px;">Notifications</h1>
+            <div class="card">
+                <div class="card-body">
+                    <marquee behavior="scroll" scrollamount="2" onmouseover="this.stop(); " onmouseout="this.start(); " direction="up">
+                        <ul style="list-style: none; ">
+                            {% for i in data %}
+                            <li class="h1 ">{{ i.date }} &nbsp;{{ i.des }}<span> <img src="{% static '/images/new.gif' %} " alt=" " style="height: 25px; "> </span></li>
+                            {% endfor %}
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="container">
+                <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 35px;text-align: center;margin-top: 20px; margin-bottom: 20px;">FeedBack</h1>
+                <form action="addfeedback" method="POST" enctype="multipart/form-data" style="-webkit-box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);
+                -moz-box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75);
+                box-shadow: -5px 6px 21px 8px rgba(0,0,0,0.75); border-radius: 0 50px 0 50px;" class="p-4 mb-4">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="">Enter Your name</label>
+                        <input type="text" name="name" class="form-control mb-2" required placeholder="Enter Your name" id="">
+                        <label for="">Your Email Id</label>
+                        <input type="email" name="email" class="form-control mb-2" required placeholder="Enter Your Email" id="">
+                        <label for="">Your Feedback Message</label>
+                        <textarea name="message" class="form-control mb-2" id="" cols="20" rows="0" required placeholder="Your Message"></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-primary w-50" value="Send" >
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

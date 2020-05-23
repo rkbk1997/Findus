@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+<li>
+  <div><a href="userhome" style="text-decoration: none; border: none !important;"><h1>
+        <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+        Find Us</h1></a>
+    </div>
+  </li>
+  {% endblock %}
+{% block changemenu %}
+<li>
+  <h1 style="font-size: 20px;"><i class="fa fa-user"></i> WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;"><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+{% block content %}
+<div class="aboutus">
+    <div class="container-fulid" style="background-image: url(static/about/bg.jpg);">
+        <div class="row d-flex w-100">
+            <div class="col-md-12 col-sm-12 pb-5" >
+                <center>
+                    <img src="{% static '/about/header.png' %}" alt="">
+                </center>
+            </div>
+            <div class="col-md-12 col-sm-12 pb-5">
+                <center>
+                    <img src="{% static '/about/1.png' %}" alt="">
+                </center>
+            </div>
+            <div class="col-md-12 col-sm-12 pb-5">
+                <center>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.0777045530467!2d75.87575251443677!3d22.725353033074683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd400a8df843%3A0x5410c632114a974e!2sUniversal%20Informatics!5e0!3m2!1sen!2sin!4v1584245762494!5m2!1sen!2sin" width="800" height="450" frameborder="2px" style="border:10px burlywood solid;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </center>
+            </div>
+            <div class="col-md-12 col-sm-12 pb-5">
+                <center>
+                    <img src="{% static '/about/6.png' %}" alt="">
+                </center>
+            </div>
+        </div>    
+        <!-------------------------------------->
+        <div class="wrapper" style="background-color: rgb(234, 247, 247);">
+            <h1 style="font-family:'Times New Roman', Times, serif; text-align: center;padding-top: 20px;">Our Team</h1>
+            <!---team 1st------------------------------------->
+            <div class="team" style="display: flex;justify-content: center;width: auto;text-align: center;flex-wrap: wrap; margin-top: 60px;">
+              <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+                <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+                    <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+                </div>
+                <h3 class="mt-4">Paul Doe</h3>
+                <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+                <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+              </div>
+            <!----team 2-------------------------------------->
+                <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+                  <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+                      <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+                  </div>
+                  <h3 class="mt-4">Paul Doe</h3>
+                  <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+                  <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+                </div>
+            <!----team 2-------------------------------------->
+            <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+                <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+                    <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+                </div>
+                <h3 class="mt-4">Paul Doe</h3>
+                <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+                <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+              </div>
+            <!----team 2-------------------------------------->
+            <div class="team_member" style="background: #fff;margin: 5px;margin-bottom: 50px;width: 300px;padding: 20px;line-height: 20px;color: #8e8b8b;position: relative;">
+                <div class="team_img" style="position: absolute;top: -50px;left: 50%;transform: translateX(-50%);width: 100px;height: 100px;border-radius: 50%;background: #fff;">
+                    <img src="{% static '/images/login.jpg' %}" alt="Team_image" style="width: 100px;height: 100px;padding: 5px; border-radius: 50px;">
+                </div>
+                <h3 class="mt-4">Paul Doe</h3>
+                <p class="role" style="color: #ccc;margin: 12px 0;font-size: 12px;text-transform: uppercase;">UI developer</p>
+                <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+              </div>
+          </div>       
+          </div>	
+        <!----------------------------------------->
+    </div>
+</div>
+
+
+{% endblock %}

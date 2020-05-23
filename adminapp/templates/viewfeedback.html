@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block top %}
+        <li>
+          <div><a href="service" style="text-decoration: none; border: none !important;"><h1>
+                <img src="{% static '/images/location.png' %}" style="height: 30px;" >
+                Find Us</h1></a>
+            </div>
+          </li>
+          {% endblock %}
+{% block changemenu %}
+<li>
+    <h1 style="font-size: 20px;">WelCome {{sunm}}</h1>
+</li>
+<li>
+    <div>
+        <a href="logout"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;""><i class="fa fa-power-off"></i>&nbsp;Logout</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navuser %}
+{% endblock %}
+{% block content %}
+<div class="table-wrap pt-3 pb-3 pl-3 pr-3" style="background-image: url(static/about/bg.jpg);">
+    <h1 style="font-family: 'Times New Roman', Times, serif; text-align: center;">View FeedBack</h1>
+    <table class="table table-bordered" id="myTable" style=" text-align: center; background: whitesmoke;" >
+        <thead>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Message Send</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.message }}</td>
+                <td><button data-target="#editmodel{{ i.id }}" data-toggle="modal"><i class="fa fa-send fa-lg"></i></button></td>
+                <td><a href="{% url 'edit_delete_feedback' i.id 'Delete' %}"><i class="fa fa-trash fa-lg" style="color: black;"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+<!------------------------------------------------------------------------------------------------->
+{% for i in data %}
+<form action="Send_Message" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="modal fade" id="editmodel{{ i.id }}">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="font-family: 'Times New Roman', Times, serif;">
+                    <h3>Send Message</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label id="editlable">To</label>
+                        <input type="email" name="email" value="{{ i.email }}" class="form-control mb-3" required>
+                        <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
+                        <input type="file" name="file" class="form-control-file mt-2">       
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button class="btn btn-success" type="submit">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endfor %}
+
+{% endblock %}

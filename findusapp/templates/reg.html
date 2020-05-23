@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block changemenu %}
+<li>
+    <div>
+        <a href="login"><button class="btn btn-outline-secondary" style="color: #fff !important; border: 1px solid #fff;""><i class="fa fa-user fa-lg"></i>&nbsp;Login</button> </a>
+    </div>
+</li>
+{% endblock %}
+{% block navmenu %}
+{% endblock %}
+{% block navadmin %}
+{% endblock %}
+{% block navuser %}
+{% endblock %}
+{% block content %}
+<div class="regpage">
+  <div class="container pl-5 pr-5 mb-3">
+    <center>
+      <img src="{% static '/images/reg.jpg' %}" class="mt-4" alt="" style="height: 100px; width:100px; border-radius: 50px; ">
+    </center>
+    <div class="heading">
+      Create Account
+    </div>
+    <form method="POST" action="reg" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user fa-lg" ></i></span>
+            </div>
+            <input type="text" name="fname"class="form-control" required placeholder="First Name">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user fa-lg" ></i></span>
+            </div>
+            <input type="text" name="lname"class="form-control" required placeholder="last Name">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user fa-lg" ></i></span>
+            </div>
+            <input type="text" name="username"class="form-control" required placeholder="User Name">
+          </div>
+        </div>
+        {% if user_taken %}
+      <div style="color: red;">Username Already Been Taken</div>
+      {% endif %}
+      </div>
+      
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-at fa-lg" ></i></span>
+            </div>
+            <input type="email" name="email"class="form-control" required placeholder="Email Address">
+          </div>
+        </div>
+        {% if email_taken %}
+      <div style="color: red;" >Email Already In Use</div>
+      {% endif %}
+      </div>
+      
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-key fa-lg" ></i></span>
+            </div>
+            <input type="password" name="password1"class="form-control" required placeholder="Password">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-key fa-lg" ></i></span>
+            </div>
+            <input type="password" name="password2"class="form-control" required placeholder="Conform Password">
+          </div>
+        </div>
+        {% if password_match %}
+      <div style="color: red;" >Password Not Matched </div>
+      {% endif %} 
+      </div>
+      
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" checked value="Male">
+          <label class="form-check-label mr-2" for="inlineRadio1">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+          <label class="form-check-label mr-2" for="inlineRadio2">Female</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Other">
+          <label class="form-check-label" for="inlineRadio2">Other</label>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-building fa-lg" ></i></span>
+            </div>
+            <select class="form-control" name="city" required>
+              <option value="0">Choose State</option>
+              {% for i in state %}
+              <option value="{{ i }}">{{ i }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-address-card fa-lg" ></i></span>
+            </div>
+            <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3" placeholder="Address" required></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+            <center>
+                <div class="inline mt-3 col-md-12 col-sm-12">
+                    <input type="submit" class="btn btn-primary mb-2 " value="Create" style="width: 200px;">
+                    <input type="reset"  class="btn btn-primary mb-2" value="Reset" style="width: 200px;">
+                    
+                </div>
+                <a href="login" class="">Login Here</a>
+            </center>   
+            
+
+        </div>
+    </form>
+</div>
+</div>
+<!--====================form close =======================================================-->
+{% endblock %}
